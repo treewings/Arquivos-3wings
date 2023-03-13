@@ -1,0 +1,12 @@
+-- Tempo real - TRIAGEM
+--ESPERA TRIAGEM --------------
+SELECT COUNT(*) AS EM_ESPERA_TRIAGEM FROM TRIAGEM_ATENDIMENTO 
+--WHERE CD_PACIENTE IS NULL 
+--AND NM_PACIENTE IS NULL 
+--AND DS_OBSERVACAO_REMOVIDO IS NULL
+WHERE DS_OBSERVACAO_REMOVIDO IS NULL
+and cd_fila_senha in (1,3,8,11)
+and cd_cor_referencia is null
+AND CD_ESPECIALID IS NULL
+and cd_atendimento is null
+AND TRUNC(DH_PRE_ATENDIMENTO)=to_date(sysdate, 'dd/mm/rrrr')
